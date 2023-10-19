@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="import_sale_history_line_view" model="ir.ui.view">
+            <field name="name">Import sale history line</field>
+            <field name="model">import.sale.history.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Import sale history line">
+                    <group>
+                        <group>
+                            <field name="excel"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button special="cancel" string="Cancelar" class="btn btn-outline-primary"
+                                icon='fa-times-circle'/>
+                        <button name="importar" string="Importar" type="object" class="btn btn-outline-primary"
+                                icon='fa-upload'/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="import_sale_history_line_action" model="ir.actions.act_window">
+            <field name="name">Importar lineas del histórico de ventas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">import.sale.history.line</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="importar_sale_history_line_menu" name="Importar lineas del histórico de ventas" parent="sale.sale_order_menu" action="import_sale_history_line_action" sequence="80"/>
+
+    </data>
+</openerp>

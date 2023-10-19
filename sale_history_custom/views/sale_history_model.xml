@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="sale_history_view_search" model="ir.ui.view">
+            <field name="name">sale.history.search</field>
+            <field name="model">sale.history</field>
+            <field name="arch" type="xml">
+                <search string="Sale history">
+
+                </search>
+            </field>
+        </record>
+
+        <record id="sale_history_view_tree" model="ir.ui.view">
+            <field name="name">sale.history.list</field>
+            <field name="model">sale.history</field>
+            <field name="arch" type="xml">
+                <tree string="Sale history">
+                    <field name="date"/>
+                    <field name="order_num"/>
+                    <field name="sale_address_ref"/>
+                    <field name="sale_address_partner_id"/>
+                    <field name="comercial_ref"/>
+                    <field name="amount"/>
+                    <field name="sale_address_country_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="sale_history_view_form" model="ir.ui.view">
+            <field name="name">sale.history.form</field>
+            <field name="model">sale.history</field>
+            <field name="arch" type="xml">
+                <form string="Sale history">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                                <field name="business_account"/>
+                                <field name="status"/>
+                                <field name="order_num"/>
+                                <field name="sale_address_ref"/>
+                                <field name="sale_address_name"/>
+                                <field name="sale_address_partner_id"/>
+                                <field name="amount"/>
+                            </group>
+                            <group>
+                                <field name="sale_address_country_pcode"/>
+                                <field name="sale_address_country_name"/>
+                                <field name="sale_address_country_id"/>
+                                <field name="sale_address_contact"/>
+                                <field name="invoice_partner_ref"/>
+                                <field name="invoice_partner_name"/>
+                                <field name="comercial_ref"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sale_history_action" model="ir.actions.act_window">
+            <field name="name">Históricos de ventas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.history</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="sale_history_menu"
+                  name="Histórico de ventas"
+                  parent="sale.sale_order_menu"
+                  action="sale_history_action"
+                  sequence="50"/>
+    </data>
+</odoo>

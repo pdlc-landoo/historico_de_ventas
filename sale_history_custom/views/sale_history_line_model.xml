@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="sale_history_line_view_search" model="ir.ui.view">
+            <field name="name">sale.history.search</field>
+            <field name="model">sale.history.line</field>
+            <field name="arch" type="xml">
+                <search string="Sale history line">
+
+                </search>
+            </field>
+        </record>
+
+        <record id="sale_history_line_view_tree" model="ir.ui.view">
+            <field name="name">sale.history.line.list</field>
+            <field name="model">sale.history.line</field>
+            <field name="arch" type="xml">
+                <tree string="Sale history line">
+                    <field name="order_id"/>
+                    <field name="type"/>
+                    <field name="product_id"/>
+                    <field name="measures"/>
+                    <field name="quantity"/>
+                    <field name="sale_price"/>
+                    <field name="amount"/>
+                    <field name="discount_percent"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="sale_history_line_view_form" model="ir.ui.view">
+            <field name="name">sale.history.line.form</field>
+            <field name="model">sale.history.line</field>
+            <field name="arch" type="xml">
+                <form string="Sale history line">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="order_num"/>
+                                <field name="order_id"/>
+                                <field name="type"/>
+                                <field name="product_num"/>
+                                <field name="product_id"/>
+                                <field name="ref_cruzada_num"/>
+                                <field name="line_num"/>
+                                <field name="product_iva_group"/>
+                                <field name="description"/>
+                            </group>
+                            <group>
+                                <field name="description2"/>
+                                <field name="measures"/>
+                                <field name="warehouse_ref"/>
+                                <field name="quantity"/>
+                                <field name="sale_price"/>
+                                <field name="amount"/>
+                                <field name="discount_percent"/>
+                                <field name="discount_amount"/>
+                                <field name="line_code"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sale_history_line_action" model="ir.actions.act_window">
+            <field name="name">Líneas de históricos de ventas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.history.line</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="sale_history_line_menu"
+                  name="Linea del histórico de ventas"
+                  parent="sale.sale_order_menu"
+                  action="sale_history_line_action"
+                  sequence="60"/>
+    </data>
+</odoo>
